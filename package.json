@@ -1,0 +1,21 @@
+{
+  "name": "hlc-one",
+  "version": "1.0.0",
+  "description": "HLC Case Management System",
+  "main": "index.js",
+  "repository": "https://github.com/sithelo/hlc-one.git",
+  "author": "Sithelo Ngwenya <sithelo@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "now-build": "next build"
+  },
+  "dependencies": {
+    "http-status": "^1.5.0",
+    "next": "^10.0.3",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
