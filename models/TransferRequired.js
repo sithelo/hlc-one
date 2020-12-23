@@ -10,4 +10,5 @@ const TransferRequiredSchema = new Schema({
     additionalInfo: String
 });
 
-module.exports= mongoose.model("TransferRequired", TransferRequiredSchema);
+const TransferRequired = mongoose.model("TransferRequired", TransferRequiredSchema);
+module.exports  = { TransferRequired, TransferRequiredSchema };

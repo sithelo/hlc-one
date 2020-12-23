@@ -6,4 +6,5 @@ const OutcomeOrFollowupSchema = new Schema({
     comments: String
 });
 
-module.exports= mongoose.model("OutcomeOrFollowup", OutcomeOrFollowupSchema);
+const OutcomeOrFollowup =  mongoose.model("OutcomeOrFollowup", OutcomeOrFollowupSchema);
+module.exports  = { OutcomeOrFollowup, OutcomeOrFollowupSchema };

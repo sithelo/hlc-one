@@ -6,4 +6,5 @@ const MedicalArticlesSchema = new Schema({
     comments: String
 });
 
-module.exports= mongoose.model("MedicalArticles", MedicalArticlesSchema);
+const MedicalArticles = mongoose.model("MedicalArticles", MedicalArticlesSchema);
+module.exports= { MedicalArticles, MedicalArticlesSchema };

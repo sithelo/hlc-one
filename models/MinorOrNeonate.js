@@ -11,4 +11,5 @@ const MinorOrNeonateSchema = new Schema({
     isNeonate: Boolean,
     neoNate: { type: mongoose.Schema.Types.ObjectId, ref: 'Neonate' },
 });
-module.exports  = mongoose.model("MinorOrNeonate", MinorOrNeonateSchema);
+const MinorOrNeonate =  mongoose.model("MinorOrNeonate", MinorOrNeonateSchema);
+module.exports  = { MinorOrNeonate, MinorOrNeonateSchema };

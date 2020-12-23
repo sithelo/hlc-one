@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const DoctorToDoctorConsultationSchema = new Schema({  
+const DoctorConsultationSchema = new Schema({  
     physicianConsultingName: String,
     physicianSpecialty: String,
     additionalInfo: String,
     physicianConsultingContactPref: String
 });
 
-module.exports= mongoose.model("DoctorToDoctorConsultation", DoctorToDoctorConsultationSchema);
+const DoctorConsultation = mongoose.model("DoctorConsultation", DoctorConsultationSchema);
+module.exports= { DoctorConsultation, DoctorConsultationSchema };

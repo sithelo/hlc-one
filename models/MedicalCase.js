@@ -5,4 +5,5 @@ const MedicalCaseSchema = new Schema({
     comments: String
 });
 
-module.exports= mongoose.model("MedicalCase", MedicalCaseSchema);
+const MedicalCase = mongoose.model("MedicalCase", MedicalCaseSchema);
+module.exports= { MedicalCase, MedicalCaseSchema };

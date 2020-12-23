@@ -8,4 +8,5 @@ const PatientPhysicianSchema = new Schema({
     physicianAdditionalSpecialty: String
 });
 
-module.exports= mongoose.model("PatientPhysician", PatientPhysicianSchema);
+const PatientPhysician = mongoose.model("PatientPhysician", PatientPhysicianSchema);
+module.exports  = { PatientPhysician, PatientPhysicianSchema };

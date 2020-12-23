@@ -4,4 +4,6 @@ const Schema = mongoose.Schema;
 const StrategiesOrAlternativesSchema = new Schema({   
     comments: String
 });
-module.exports= mongoose.model("StrategiesOrAlternatives", StrategiesOrAlternativesSchema);
+
+const StrategiesOrAlternatives = mongoose.model("StrategiesOrAlternatives", StrategiesOrAlternativesSchema);
+module.exports  = { StrategiesOrAlternatives, StrategiesOrAlternativesSchema };

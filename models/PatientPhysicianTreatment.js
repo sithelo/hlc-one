@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const PatientPhysicianTreatmentSchema = new Schema({ 
+const PhysicianTreatmentSchema = new Schema({ 
     medicalStaffHlc: Boolean,
     potentialLegalAction: Boolean,
     comments: String
 });
 
-module.exports= mongoose.model("PatientPhysicianTreatment", PatientPhysicianTreatmentSchema);
+const PhysicianTreatment = mongoose.model("PhysicianTreatment", PhysicianTreatmentSchema);
+module.exports  = { PhysicianTreatment, PhysicianTreatmentSchema };
