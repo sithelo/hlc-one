@@ -17,15 +17,15 @@ const MedicalEmergencySchema = new Schema({
     contactNumbersOfElders: [Number],
     minorOrNeonate: Boolean,
     minorOrNeoNateFamily: { type: mongoose.Schema.Types.ObjectId, ref: 'MinorOrNeonate' },
-    medicalCaseDetails: [{ type:mongoose.Schema.Types.ObjectId, ref: 'MedicalCase' }],
+    medicalCaseDetails: { type:mongoose.Schema.Types.ObjectId, ref: 'MedicalCase' },
     labValues: [{ type: mongoose.Schema.Types.ObjectId, ref: 'LabValues' }],
-    physicianDetails: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Physician' }],
-    physicianTreatmentPlan: [{ type: mongoose.Schema.Types.ObjectId, ref: 'PhysicianTreatmentPlan' }],
+    physicianDetails: { type: mongoose.Schema.Types.ObjectId, ref: 'Physician' },
+    physicianTreatmentPlan: { type: mongoose.Schema.Types.ObjectId, ref: 'PhysicianTreatmentPlan' },
     strategiesOrAlternatives: [{ type: mongoose.Schema.Types.ObjectId, ref: 'StrategiesOrAlternatives' }],
-    medicalArticles: [{ type: mongoose.Schema.Types.ObjectId, ref: 'MedicalArticles' }],
-    dr2drConsultation: [{ type: mongoose.Schema.Types.ObjectId, ref: 'DoctorToDoctorConsultation' }],
-    transferRequired: [{ type: mongoose.Schema.Types.ObjectId, ref: 'TransferRequired' }], 
-    outcomeOrFollowup: [{ type: mongoose.Schema.Types.ObjectId, ref: 'OutcomeOrFollowup' }],   
+    medicalArticles: { type: mongoose.Schema.Types.ObjectId, ref: 'MedicalArticles' },
+    dr2drConsultation: { type: mongoose.Schema.Types.ObjectId, ref: 'DoctorToDoctorConsultation' },
+    transferRequired: { type: mongoose.Schema.Types.ObjectId, ref: 'TransferRequired' }, 
+    outcomeOrFollowup: { type: mongoose.Schema.Types.ObjectId, ref: 'OutcomeOrFollowup' },   
 });
 const UserAssignedSchema = new Schema({
     FirstName: String,
@@ -98,20 +98,34 @@ const OutcomeOrFollowupSchema = new Schema({
     localEldersContacted: Boolean, 
     comments: String
 });
+const MedicalEmergency =  mongoose.model("MedicalEmergency", MedicalEmergencySchema);
+const UserAssigned =  mongoose.model("UserAssignedSchema", UserAssignedSchema);
+const MinorOrNeonate = mongoose.model("MinorOrNeonate", MinorOrNeonateSchema);
+const Neonate =   mongoose.model("Neonate", NeonateSchema);
+const APGAR_Score = mongoose.model("APGAR_Score", APGAR_ScoreSchema);
+const MedicalCase = mongoose.model("MedicalCase", MedicalCaseSchema);
+const LabValues = mongoose.model("LabValues", LabValuesSchema);
+const Physician =  mongoose.model("Physician", PhysicianSchema);
+const PhysicianTreatmentPlan =  mongoose.model("PhysicianTreatmentPlan", PhysicianTreatmentPlanSchema);
+const StrategiesOrAlternatives = mongoose.model("StrategiesOrAlternatives", StrategiesOrAlternativesSchema);
+const MedicalArticles = mongoose.model("MedicalArticles", MedicalArticlesSchema);
+const DoctorToDoctorConsultation =  mongoose.model("DoctorToDoctorConsultation", DoctorToDoctorConsultationSchema);
+const TransferRequired =  mongoose.model("TransferRequired", TransferRequiredSchema);
+const OutcomeOrFollowup =  mongoose.model("OutcomeOrFollowup", OutcomeOrFollowupSchema);
 
-const MedicalEmergency = mongoose.models.MedicalEmergency || mongoose.model("MedicalEmergency", MedicalEmergencySchema);
-const UserAssigned = mongoose.models.UserAssignedSchema || mongoose.model("UserAssignedSchema", UserAssignedSchema);
-const MinorOrNeonate = mongoose.models.MinorOrNeonate || mongoose.model("MinorOrNeonate", MinorOrNeonateSchema);
-const Neonate = mongoose.models.Neonate || mongoose.model("Neonate", NeonateSchema);
-const APGAR_Score = mongoose.models.APGAR_Score || mongoose.model("APGAR_Score", APGAR_ScoreSchema);
-const MedicalCase = mongoose.models.TransferRequired || mongoose.model("TransferRequired", MedicalCaseSchema);
-const LabValues = mongoose.models.LabValues || mongoose.model("LabValues", LabValuesSchema);
-const Physician = mongoose.models.Physician || mongoose.model("Physician", PhysicianSchema);
-const PhysicianTreatmentPlan = mongoose.models.PhysicianTreatmentPlan || mongoose.model("PhysicianTreatmentPlan", PhysicianTreatmentPlanSchema);
-const StrategiesOrAlternatives = mongoose.models.StrategiesOrAlternatives || mongoose.model("StrategiesOrAlternatives", StrategiesOrAlternativesSchema);
-const MedicalArticles = mongoose.models.MedicalArticles || mongoose.models.MedicalEmergency || mongoose.model("MedicalArticles", MedicalArticlesSchema);
-const DoctorToDoctorConsultation = mongoose.models.DoctorToDoctorConsultation || mongoose.model("DoctorToDoctorConsultation", DoctorToDoctorConsultationSchema);
-const TransferRequired = mongoose.models.TransferRequired || mongoose.model("TransferRequired", TransferRequiredSchema);
-const OutcomeOrFollowup = mongoose.models.OutcomeOrFollowup || mongoose.model("OutcomeOrFollowup", OutcomeOrFollowupSchema);
+// const MedicalEmergency = mongoose.models.MedicalEmergency || mongoose.model("MedicalEmergency", MedicalEmergencySchema);
+// const UserAssigned = mongoose.models.UserAssignedSchema || mongoose.model("UserAssignedSchema", UserAssignedSchema);
+// const MinorOrNeonate = mongoose.models.MinorOrNeonate || mongoose.model("MinorOrNeonate", MinorOrNeonateSchema);
+// const Neonate = mongoose.models.Neonate || mongoose.model("Neonate", NeonateSchema);
+// const APGAR_Score = mongoose.models.APGAR_Score || mongoose.model("APGAR_Score", APGAR_ScoreSchema);
+// const MedicalCase = mongoose.models.TransferRequired || mongoose.model("MedicalCase", MedicalCaseSchema);
+// const LabValues = mongoose.models.LabValues || mongoose.model("LabValues", LabValuesSchema);
+// const Physician = mongoose.models.Physician || mongoose.model("Physician", PhysicianSchema);
+// const PhysicianTreatmentPlan = mongoose.models.PhysicianTreatmentPlan || mongoose.model("PhysicianTreatmentPlan", PhysicianTreatmentPlanSchema);
+// const StrategiesOrAlternatives = mongoose.models.StrategiesOrAlternatives || mongoose.model("StrategiesOrAlternatives", StrategiesOrAlternativesSchema);
+// const MedicalArticles = mongoose.models.MedicalArticles || mongoose.model("MedicalArticles", MedicalArticlesSchema);
+// const DoctorToDoctorConsultation = mongoose.models.DoctorToDoctorConsultation || mongoose.model("DoctorToDoctorConsultation", DoctorToDoctorConsultationSchema);
+// const TransferRequired = mongoose.models.TransferRequired || mongoose.model("TransferRequired", TransferRequiredSchema);
+// const OutcomeOrFollowup = mongoose.models.OutcomeOrFollowup || mongoose.model("OutcomeOrFollowup", OutcomeOrFollowupSchema);
 
 module.exports = { MedicalEmergency, UserAssigned, MinorOrNeonate, Neonate, APGAR_Score, MedicalCase, LabValues, Physician, PhysicianTreatmentPlan, StrategiesOrAlternatives,  MedicalArticles,  DoctorToDoctorConsultation,  TransferRequired,  OutcomeOrFollowup };
